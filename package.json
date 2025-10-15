@@ -1,0 +1,32 @@
+{
+  "name": "remix-v3-examples",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun run app/index.html --hot",
+    "start": "bun run app/index.html"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@preact/signals-core": "^1.12.1",
+    "@remix-run/dom": "^0.0.0-experimental-remix-jam.6",
+    "@remix-run/events": "^0.0.0-experimental-remix-jam.5",
+    "@tanstack/form-core": "^1.24.3",
+    "@tanstack/query-core": "^5.90.3",
+    "@tanstack/table-core": "^8.21.3",
+    "@tanstack/virtual-core": "^3.13.12",
+    "jotai": "^2.15.0",
+    "motion": "^12.23.24",
+    "redux": "^5.0.1",
+    "rxjs": "^7.8.2",
+    "xstate": "^5.23.0",
+    "zod": "^4.1.12",
+    "zustand": "^5.0.8"
+  }
+}
