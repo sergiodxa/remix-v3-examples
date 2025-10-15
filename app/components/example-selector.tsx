@@ -25,15 +25,7 @@ export class ExampleSelectorModel extends EventTarget {
 
   get options() {
     return {
-      state: [
-        "motion",
-        "redux",
-        "zustand",
-        "rxjs",
-        "xstate",
-        "jotai",
-        "signals",
-      ],
+      state: ["redux", "zustand", "rxjs", "xstate", "jotai", "signals"],
       tanstack: ["query", "form", "virtual", "table"],
       animation: ["motion"],
     } as const;
