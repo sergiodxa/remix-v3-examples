@@ -1,15 +1,23 @@
-# remix-v3-examples
+# Remix v3 Examples
 
-To install dependencies:
+This repository contains examples of how to use Remix v3 with different other packages.
+
+## Usage
+
+Install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+Then run the dev mode
 
 ```bash
-bun run index.ts
+bun dev
 ```
 
-This project was created using `bun init` in bun v1.3.0. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Or the production mode
+
+```bash
+bun start
+```
