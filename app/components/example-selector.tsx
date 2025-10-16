@@ -12,7 +12,8 @@ type Example =
   | "query"
   | "form"
   | "virtual"
-  | "table";
+  | "table"
+  | "context";
 
 const [change, createChange] = createEventType("change");
 
@@ -28,6 +29,7 @@ export class ExampleSelectorModel extends EventTarget {
       state: ["redux", "zustand", "rxjs", "xstate", "jotai", "signals"],
       tanstack: ["query", "form", "virtual", "table"],
       animation: ["motion"],
+      other: ["context"],
     } as const;
   }
 

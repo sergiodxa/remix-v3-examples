@@ -17,6 +17,8 @@ import {
   ExampleSelectorModel,
 } from "./components/example-selector";
 import { events } from "@remix-run/events";
+import { ContextProvider } from "./context/provider";
+import { ContextConsumer } from "./context/consumer";
 
 createRoot(document.getElementById("root")!).render(
   <div
@@ -57,6 +59,11 @@ function App(this: Remix.Handle) {
       {exampleSelector.selected === "virtual" && <VirtualExample />}
       {exampleSelector.selected === "table" && <TableExample />}
       {exampleSelector.selected === "motion" && <MotionExample />}
+      {exampleSelector.selected === "context" && (
+        <ContextProvider>
+          <ContextConsumer />
+        </ContextProvider>
+      )}
     </div>
   );
 }
