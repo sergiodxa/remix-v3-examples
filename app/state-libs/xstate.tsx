@@ -3,24 +3,16 @@ import { press } from "@remix-run/events/press";
 import { createMachine, createActor } from "xstate";
 
 const counterMachine = createMachine({
-  id: "counter",
-  initial: "active",
-  context: {
-    count: 0,
-  },
-  states: {
-    active: {
-      on: {
-        INCREMENT: {
-          actions({ context }) {
-            context.count++;
-          },
-        },
-        DECREMENT: {
-          actions({ context }) {
-            context.count--;
-          },
-        },
+  context: { count: 0 },
+  on: {
+    INCREMENT: {
+      actions({ context }) {
+        context.count++;
+      },
+    },
+    DECREMENT: {
+      actions({ context }) {
+        context.count--;
       },
     },
   },
