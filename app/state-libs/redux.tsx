@@ -1,24 +1,22 @@
 import type { Remix } from "@remix-run/dom";
 import { press } from "@remix-run/events/press";
-import { legacy_createStore as createStore } from "redux";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-interface State {
-  count: number;
-}
-
-type Action = { type: "INCREMENT" } | { type: "DECREMENT" };
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: 0,
+  reducers: {
+    increment(state) {
+      return state + 1;
+    },
+    decrement(state) {
+      return state - 1;
+    },
+  },
+});
 
 export function ReduxExample(this: Remix.Handle) {
-  const store = createStore<State, Action>((state = { count: 0 }, action) => {
-    switch (action.type) {
-      case "INCREMENT":
-        return { count: state.count + 1 };
-      case "DECREMENT":
-        return { count: state.count - 1 };
-      default:
-        return state;
-    }
-  });
+  const store = configureStore({ reducer: counterSlice.reducer });
 
   this.signal.addEventListener(
     "abort",
@@ -26,18 +24,19 @@ export function ReduxExample(this: Remix.Handle) {
     { once: true },
   );
 
-  return () => {
-    let state = store.getState();
-    return (
-      <>
-        <p>Count: {state.count}</p>
-        <button on={[press(() => store.dispatch({ type: "INCREMENT" }))]}>
-          Increment
-        </button>
-        <button on={[press(() => store.dispatch({ type: "DECREMENT" }))]}>
-          Decrement
-        </button>
-      </>
-    );
-  };
+  return () => (
+    <>
+      <p>Count: {store.getState()}</p>
+      <button
+        on={[press(() => store.dispatch(counterSlice.actions.increment()))]}
+      >
+        Increment
+      </button>
+      <button
+        on={[press(() => store.dispatch(counterSlice.actions.decrement()))]}
+      >
+        Decrement
+      </button>
+    </>
+  );
 }

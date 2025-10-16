@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@preact/signals-core": "^1.12.1",
+    "@reduxjs/toolkit": "^2.9.0",
     "@remix-run/dom": "^0.0.0-experimental-remix-jam.6",
     "@remix-run/events": "^0.0.0-experimental-remix-jam.5",
     "@tanstack/form-core": "^1.24.3",
