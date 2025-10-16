@@ -15,13 +15,16 @@ type Example =
   | "table"
   | "context";
 
+interface RenderProps {
+  render(example: Example): Remix.RemixNode;
+}
+
 const [change, createChange] = createEventType("change");
 
-export class ExampleSelectorModel extends EventTarget {
-  #example: Example = "motion";
-
-  get selected() {
-    return this.#example;
+class Model extends EventTarget {
+  get selected(): Example {
+    let searchParams = new URLSearchParams(window.location.search);
+    return (searchParams.get("example") ?? "context") as Example;
   }
 
   get options() {
@@ -34,44 +37,42 @@ export class ExampleSelectorModel extends EventTarget {
   }
 
   change(example: Example) {
-    this.#example = example;
+    history.pushState(null, "", `?example=${example}`);
     this.dispatchEvent(createChange());
   }
-
-  static change = change;
 }
 
-export const exampleSelector = new ExampleSelectorModel();
-
 export function ExampleSelector(this: Remix.Handle) {
-  events(exampleSelector, [ExampleSelectorModel.change(() => this.update())]);
+  const model = new Model();
+  events(model, [change(() => this.update())]);
 
-  return () => {
+  return (props: RenderProps) => {
     return (
-      <select
-        on={[
-          dom.change((event) =>
-            exampleSelector.change(event.currentTarget.value as Example),
-          ),
-        ]}
-        css={{
-          fontSize: "1rem",
-        }}
-      >
-        {Object.entries(exampleSelector.options).map(([group, options]) => (
-          <optgroup key={group} label={group}>
-            {options.map((option) => (
-              <option
-                key={option}
-                value={option}
-                selected={option === exampleSelector.selected}
-              >
-                {option}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
+      <>
+        <select
+          css={{ fontSize: "1rem" }}
+          on={[
+            dom.change((event) =>
+              model.change(event.currentTarget.value as Example),
+            ),
+          ]}
+        >
+          {Object.entries(model.options).map(([group, options]) => (
+            <optgroup key={group} label={group}>
+              {options.map((option) => (
+                <option
+                  key={option}
+                  value={option}
+                  selected={option === model.selected}
+                >
+                  {option}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+        {props.render(model.selected)}
+      </>
     );
   };
 }
