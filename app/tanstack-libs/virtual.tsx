@@ -22,8 +22,9 @@ export function VirtualExample(this: Remix.Handle) {
     onChange: () => this.update(),
   });
 
-  const unsubscribe = virtualizer._didMount();
-  this.signal.addEventListener("abort", unsubscribe, { once: true });
+  this.signal.addEventListener("abort", virtualizer._didMount(), {
+    once: true,
+  });
 
   return () => (
     <>
