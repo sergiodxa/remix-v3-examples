@@ -6,17 +6,24 @@ export function RxJSExample(this: Remix.Handle) {
   const count$ = new BehaviorSubject(0);
   const actions$ = new BehaviorSubject<"INCREMENT" | "DECREMENT" | null>(null);
 
-  actions$.subscribe((action) => {
-    if (!action) return;
-    if (action === "INCREMENT") count$.next(count$.value + 1);
-    if (action === "DECREMENT") count$.next(count$.value - 1);
+  this.queueTask(() => {
+    this.signal.addEventListener(
+      "abort",
+      count$.subscribe(() => this.update()).unsubscribe,
+      { once: true },
+    );
   });
 
   this.queueTask(() => {
-    const subscription = count$.subscribe(() => this.update());
-    this.signal.addEventListener("abort", () => subscription.unsubscribe(), {
-      once: true,
-    });
+    this.signal.addEventListener(
+      "abort",
+      actions$.subscribe((action) => {
+        if (!action) return;
+        if (action === "INCREMENT") count$.next(count$.value + 1);
+        if (action === "DECREMENT") count$.next(count$.value - 1);
+      }).unsubscribe,
+      { once: true },
+    );
   });
 
   return () => {

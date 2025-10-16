@@ -12,12 +12,12 @@ const counterMachine = createMachine({
     active: {
       on: {
         INCREMENT: {
-          actions: ({ context }) => {
+          actions({ context }) {
             context.count++;
           },
         },
         DECREMENT: {
-          actions: ({ context }) => {
+          actions({ context }) {
             context.count--;
           },
         },

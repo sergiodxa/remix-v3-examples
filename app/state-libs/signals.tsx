@@ -9,7 +9,6 @@ export function SignalsExample(this: Remix.Handle) {
     this.signal.addEventListener(
       "abort",
       effect(() => {
-        // Track the signal to trigger effect on changes
         void count.value;
         this.update();
       }),
