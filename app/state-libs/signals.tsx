@@ -4,7 +4,6 @@ import { signal, effect } from "@preact/signals-core";
 
 export function SignalsExample(this: Remix.Handle) {
   const count = signal(0);
-
   this.queueTask(() => {
     this.signal.addEventListener(
       "abort",
