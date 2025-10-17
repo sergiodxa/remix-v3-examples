@@ -15,6 +15,7 @@ import { ContextExample } from "./context";
 
 import { ExampleSelector } from "./components/example-selector";
 import { EventTargetExample } from "./state-libs/event-target";
+import { LegendStateExample } from "./state-libs/legend-state";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -47,6 +48,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "table") return <TableExample />;
           if (selected === "motion") return <MotionExample />;
           if (selected === "context") return <ContextExample />;
+          if (selected === "legend-state") return <LegendStateExample />;
           return null;
         }}
       />

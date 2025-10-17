@@ -10,6 +10,7 @@ type Example =
   | "xstate"
   | "jotai"
   | "signals"
+  | "legend-state"
   | "query"
   | "form"
   | "virtual"
@@ -38,6 +39,7 @@ class Model extends EventTarget {
         "xstate",
         "jotai",
         "signals",
+        "legend-state",
       ],
       tanstack: ["query", "form", "virtual", "table"],
       animation: ["motion"],
