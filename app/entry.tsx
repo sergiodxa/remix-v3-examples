@@ -14,6 +14,7 @@ import { MotionExample } from "./animations/motion";
 import { ContextExample } from "./context";
 
 import { ExampleSelector } from "./components/example-selector";
+import { EventTargetExample } from "./state-libs/event-target";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -33,6 +34,7 @@ createRoot(document.getElementById("root")!).render(
     >
       <ExampleSelector
         render={(selected) => {
+          if (selected === "event-target") return <EventTargetExample />;
           if (selected === "redux") return <ReduxExample />;
           if (selected === "zustand") return <ZustandExample />;
           if (selected === "rxjs") return <RxJSExample />;
