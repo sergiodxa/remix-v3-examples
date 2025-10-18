@@ -8,6 +8,7 @@ type Example =
   | "zustand"
   | "rxjs"
   | "xstate"
+  | "xstate-store"
   | "jotai"
   | "signals"
   | "legend-state"
@@ -37,6 +38,7 @@ class Model extends EventTarget {
         "zustand",
         "rxjs",
         "xstate",
+        "xstate-store",
         "jotai",
         "signals",
         "legend-state",

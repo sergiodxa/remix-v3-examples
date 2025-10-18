@@ -16,6 +16,7 @@ import { ContextExample } from "./context";
 import { ExampleSelector } from "./components/example-selector";
 import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
+import { XStateStoreExample } from "./state-libs/xstate-store";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -40,6 +41,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "zustand") return <ZustandExample />;
           if (selected === "rxjs") return <RxJSExample />;
           if (selected === "xstate") return <XStateExample />;
+          if (selected === "xstate-store") return <XStateStoreExample />;
           if (selected === "jotai") return <JotaiExample />;
           if (selected === "signals") return <SignalsExample />;
           if (selected === "query") return <QueryExample />;
