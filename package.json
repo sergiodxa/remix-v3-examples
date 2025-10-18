@@ -23,6 +23,7 @@
     "@tanstack/query-core": "^5.90.3",
     "@tanstack/table-core": "^8.21.3",
     "@tanstack/virtual-core": "^3.13.12",
+    "@xstate/store": "^3.11.1",
     "jotai": "^2.15.0",
     "motion": "^12.23.24",
     "rxjs": "^7.8.2",

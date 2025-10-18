@@ -1,19 +1,15 @@
 import type { Remix } from "@remix-run/dom";
 import { press } from "@remix-run/events/press";
-import { createMachine, createActor } from "xstate";
+import { createMachine, createActor, assign } from "xstate";
 
 const counterMachine = createMachine({
   context: { count: 0 },
   on: {
     INCREMENT: {
-      actions({ context }) {
-        context.count++;
-      },
+      actions: assign({ count: ({ context }) => context.count + 1 }),
     },
     DECREMENT: {
-      actions({ context }) {
-        context.count--;
-      },
+      actions: assign({ count: ({ context }) => context.count - 1 }),
     },
   },
 });
