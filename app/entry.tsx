@@ -17,6 +17,7 @@ import { ExampleSelector } from "./components/example-selector";
 import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
 import { XStateStoreExample } from "./state-libs/xstate-store";
+import { VanillaExample } from "./state-libs/vanilla";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")!).render(
     >
       <ExampleSelector
         render={(selected) => {
+          if (selected === "vanilla") return <VanillaExample />;
           if (selected === "event-target") return <EventTargetExample />;
           if (selected === "redux") return <ReduxExample />;
           if (selected === "zustand") return <ZustandExample />;
