@@ -21,6 +21,7 @@ type Example =
   | "virtual"
   | "table"
   | "i18next"
+  | "formatjs"
   | "context";
 
 interface RenderProps {
@@ -54,7 +55,7 @@ class Model extends EventTarget {
       ],
       tanstack: ["query", "form", "virtual", "table"],
       animation: ["motion"],
-      i18n: ["i18next"],
+      i18n: ["i18next", "formatjs"],
       other: ["context"],
     } as const;
   }

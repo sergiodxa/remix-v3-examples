@@ -15,6 +15,7 @@ import { VirtualExample } from "./tanstack-libs/virtual";
 import { TableExample } from "./tanstack-libs/table";
 import { MotionExample } from "./animations/motion";
 import { I18NextExample } from "./i18n/i18next";
+import { FormatJSExample } from "./i18n/formatjs";
 import { ContextExample } from "./context";
 
 import { ExampleSelector } from "./components/example-selector";
@@ -60,6 +61,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "table") return <TableExample />;
           if (selected === "motion") return <MotionExample />;
           if (selected === "i18next") return <I18NextExample />;
+          if (selected === "formatjs") return <FormatJSExample />;
           if (selected === "context") return <ContextExample />;
           return null;
         }}
