@@ -6,6 +6,9 @@ import { RxJSExample } from "./state-libs/rxjs";
 import { XStateExample } from "./state-libs/xstate";
 import { JotaiExample } from "./state-libs/jotai";
 import { SignalsExample } from "./state-libs/signals";
+import { ValtioExample } from "./state-libs/valtio";
+import { NanostoresExample } from "./state-libs/nanostores";
+import { MobXExample } from "./state-libs/mobx";
 import { QueryExample } from "./tanstack-libs/query";
 import { FormExample } from "./tanstack-libs/form";
 import { VirtualExample } from "./tanstack-libs/virtual";
@@ -46,13 +49,16 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "xstate-store") return <XStateStoreExample />;
           if (selected === "jotai") return <JotaiExample />;
           if (selected === "signals") return <SignalsExample />;
+          if (selected === "legend-state") return <LegendStateExample />;
+          if (selected === "valtio") return <ValtioExample />;
+          if (selected === "nanostores") return <NanostoresExample />;
+          if (selected === "mobx") return <MobXExample />;
           if (selected === "query") return <QueryExample />;
           if (selected === "form") return <FormExample />;
           if (selected === "virtual") return <VirtualExample />;
           if (selected === "table") return <TableExample />;
           if (selected === "motion") return <MotionExample />;
           if (selected === "context") return <ContextExample />;
-          if (selected === "legend-state") return <LegendStateExample />;
           return null;
         }}
       />

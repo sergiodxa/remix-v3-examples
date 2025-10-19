@@ -13,6 +13,9 @@ type Example =
   | "jotai"
   | "signals"
   | "legend-state"
+  | "valtio"
+  | "nanostores"
+  | "mobx"
   | "query"
   | "form"
   | "virtual"
@@ -44,6 +47,9 @@ class Model extends EventTarget {
         "jotai",
         "signals",
         "legend-state",
+        "valtio",
+        "nanostores",
+        "mobx",
       ],
       tanstack: ["query", "form", "virtual", "table"],
       animation: ["motion"],
