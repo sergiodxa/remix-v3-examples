@@ -31,6 +31,10 @@ type Example =
   | "resize-observer"
   | "web-animations"
   | "drag-drop"
+  | "clipboard"
+  | "notification"
+  | "geolocation"
+  | "share"
   | "context";
 
 interface RenderProps {
@@ -72,6 +76,10 @@ class Model extends EventTarget {
         "resize-observer",
         "web-animations",
         "drag-drop",
+        "clipboard",
+        "notification",
+        "geolocation",
+        "share",
       ],
       other: ["context"],
     } as const;
