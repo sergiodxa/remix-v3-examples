@@ -27,7 +27,7 @@ export function PopperExample(this: Remix.Handle) {
           {
             name: "arrow",
             options: {
-              element: arrowRef || undefined,
+              element: arrowRef,
               padding: 5,
             },
           },
