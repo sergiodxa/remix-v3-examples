@@ -23,9 +23,15 @@ export function PopperExample(this: Remix.Handle) {
               offset: [0, 8],
             },
           },
+          {
+            name: "arrow",
+            options: {
+              padding: 5,
+            },
+          },
         ],
       });
-    } else if (popperInstance) {
+    } else if (!isOpen && popperInstance) {
       popperInstance.destroy();
       popperInstance = null;
     }
