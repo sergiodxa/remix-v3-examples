@@ -18,6 +18,9 @@ import { I18NextExample } from "./i18n/i18next";
 import { FormatJSExample } from "./i18n/formatjs";
 import { FuseExample } from "./search/fuse";
 import { MatchSorterExample } from "./search/match-sorter";
+import { LocalStorageExample } from "./storage/local-storage";
+import { LocalForageExample } from "./storage/localforage";
+import { IDBExample } from "./storage/idb";
 import { ContextExample } from "./context";
 
 import { ExampleSelector } from "./components/example-selector";
@@ -66,6 +69,9 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "formatjs") return <FormatJSExample />;
           if (selected === "fuse") return <FuseExample />;
           if (selected === "match-sorter") return <MatchSorterExample />;
+          if (selected === "local-storage") return <LocalStorageExample />;
+          if (selected === "localforage") return <LocalForageExample />;
+          if (selected === "idb") return <IDBExample />;
           if (selected === "context") return <ContextExample />;
           return null;
         }}

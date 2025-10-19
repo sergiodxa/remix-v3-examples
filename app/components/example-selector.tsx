@@ -24,6 +24,9 @@ type Example =
   | "formatjs"
   | "fuse"
   | "match-sorter"
+  | "local-storage"
+  | "localforage"
+  | "idb"
   | "context";
 
 interface RenderProps {
@@ -59,6 +62,7 @@ class Model extends EventTarget {
       animation: ["motion"],
       i18n: ["i18next", "formatjs"],
       search: ["fuse", "match-sorter"],
+      storage: ["local-storage", "localforage", "idb"],
       other: ["context"],
     } as const;
   }
