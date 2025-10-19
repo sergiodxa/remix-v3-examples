@@ -14,7 +14,7 @@ export function PopperExample(this: Remix.Handle) {
     isOpen = !isOpen;
     this.update();
 
-    if (isOpen && buttonRef && popoverRef && arrowRef) {
+    if (isOpen && buttonRef && popoverRef) {
       popperInstance = createPopper(buttonRef, popoverRef, {
         placement: "top",
         modifiers: [
@@ -27,7 +27,7 @@ export function PopperExample(this: Remix.Handle) {
           {
             name: "arrow",
             options: {
-              element: arrowRef,
+              element: arrowRef || undefined,
               padding: 5,
             },
           },
