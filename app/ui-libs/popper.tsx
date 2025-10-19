@@ -7,13 +7,14 @@ export function PopperExample(this: Remix.Handle) {
   let isOpen = false;
   let buttonRef: HTMLButtonElement | null = null;
   let popoverRef: HTMLDivElement | null = null;
+  let arrowRef: HTMLDivElement | null = null;
   let popperInstance: Instance | null = null;
 
   const togglePopover = () => {
     isOpen = !isOpen;
     this.update();
 
-    if (isOpen && buttonRef && popoverRef) {
+    if (isOpen && buttonRef && popoverRef && arrowRef) {
       popperInstance = createPopper(buttonRef, popoverRef, {
         placement: "top",
         modifiers: [
@@ -26,6 +27,7 @@ export function PopperExample(this: Remix.Handle) {
           {
             name: "arrow",
             options: {
+              element: arrowRef,
               padding: 5,
             },
           },
@@ -82,7 +84,11 @@ export function PopperExample(this: Remix.Handle) {
           }}
         >
           This is a popover positioned with Popper.js!
-          <div class="arrow" data-popper-arrow />
+          <div
+            class="arrow"
+            data-popper-arrow
+            on={[connect((event) => (arrowRef = event.currentTarget))]}
+          />
         </div>
       )}
     </div>
