@@ -21,6 +21,8 @@ import { MatchSorterExample } from "./search/match-sorter";
 import { LocalStorageExample } from "./storage/local-storage";
 import { LocalForageExample } from "./storage/localforage";
 import { IDBExample } from "./storage/idb";
+import { MarkedExample } from "./parsing/marked";
+import { HighlightJsExample } from "./parsing/highlight-js";
 import { IntersectionObserverExample } from "./web-api/intersection-observer";
 import { ResizeObserverExample } from "./web-api/resize-observer";
 import { WebAnimationsExample } from "./web-api/web-animations";
@@ -29,13 +31,16 @@ import { ClipboardExample } from "./web-api/clipboard";
 import { NotificationExample } from "./web-api/notification";
 import { GeolocationExample } from "./web-api/geolocation";
 import { ShareExample } from "./web-api/share";
+import { BroadcastChannelExample } from "./web-api/broadcast-channel";
+import { PageVisibilityExample } from "./web-api/page-visibility";
+import { ScreenOrientationExample } from "./web-api/screen-orientation";
+import { FullscreenExample } from "./web-api/fullscreen";
 import { ContextExample } from "./context";
-
-import { ExampleSelector } from "./components/example-selector";
 import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
 import { XStateStoreExample } from "./state-libs/xstate-store";
 import { VanillaExample } from "./state-libs/vanilla";
+import { ExampleSelector } from "./components/example-selector";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -80,8 +85,8 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "local-storage") return <LocalStorageExample />;
           if (selected === "localforage") return <LocalForageExample />;
           if (selected === "idb") return <IDBExample />;
-          if (selected === "intersection-observer")
-            return <IntersectionObserverExample />;
+          if (selected === "marked") return <MarkedExample />;
+          if (selected === "highlight-js") return <HighlightJsExample />;
           if (selected === "resize-observer") return <ResizeObserverExample />;
           if (selected === "web-animations") return <WebAnimationsExample />;
           if (selected === "drag-drop") return <DragDropExample />;
@@ -89,7 +94,18 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "notification") return <NotificationExample />;
           if (selected === "geolocation") return <GeolocationExample />;
           if (selected === "share") return <ShareExample />;
+          if (selected === "page-visibility") return <PageVisibilityExample />;
+          if (selected === "fullscreen") return <FullscreenExample />;
           if (selected === "context") return <ContextExample />;
+          if (selected === "intersection-observer") {
+            return <IntersectionObserverExample />;
+          }
+          if (selected === "broadcast-channel") {
+            return <BroadcastChannelExample />;
+          }
+          if (selected === "screen-orientation") {
+            return <ScreenOrientationExample />;
+          }
           return null;
         }}
       />

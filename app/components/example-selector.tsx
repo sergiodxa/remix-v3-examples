@@ -35,6 +35,12 @@ type Example =
   | "notification"
   | "geolocation"
   | "share"
+  | "marked"
+  | "highlight-js"
+  | "broadcast-channel"
+  | "page-visibility"
+  | "screen-orientation"
+  | "fullscreen"
   | "context";
 
 interface RenderProps {
@@ -71,6 +77,7 @@ class Model extends EventTarget {
       i18n: ["i18next", "formatjs"],
       search: ["fuse", "match-sorter"],
       storage: ["local-storage", "localforage", "idb"],
+      parsing: ["marked", "highlight-js"],
       "web-api": [
         "intersection-observer",
         "resize-observer",
@@ -80,6 +87,10 @@ class Model extends EventTarget {
         "notification",
         "geolocation",
         "share",
+        "broadcast-channel",
+        "page-visibility",
+        "screen-orientation",
+        "fullscreen",
       ],
       other: ["context"],
     } as const;
