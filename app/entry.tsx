@@ -21,6 +21,10 @@ import { MatchSorterExample } from "./search/match-sorter";
 import { LocalStorageExample } from "./storage/local-storage";
 import { LocalForageExample } from "./storage/localforage";
 import { IDBExample } from "./storage/idb";
+import { IntersectionObserverExample } from "./web-api/intersection-observer";
+import { ResizeObserverExample } from "./web-api/resize-observer";
+import { WebAnimationsExample } from "./web-api/web-animations";
+import { DragDropExample } from "./web-api/drag-drop";
 import { ContextExample } from "./context";
 
 import { ExampleSelector } from "./components/example-selector";
@@ -72,6 +76,11 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "local-storage") return <LocalStorageExample />;
           if (selected === "localforage") return <LocalForageExample />;
           if (selected === "idb") return <IDBExample />;
+          if (selected === "intersection-observer")
+            return <IntersectionObserverExample />;
+          if (selected === "resize-observer") return <ResizeObserverExample />;
+          if (selected === "web-animations") return <WebAnimationsExample />;
+          if (selected === "drag-drop") return <DragDropExample />;
           if (selected === "context") return <ContextExample />;
           return null;
         }}

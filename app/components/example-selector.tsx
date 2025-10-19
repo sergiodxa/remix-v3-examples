@@ -27,6 +27,10 @@ type Example =
   | "local-storage"
   | "localforage"
   | "idb"
+  | "intersection-observer"
+  | "resize-observer"
+  | "web-animations"
+  | "drag-drop"
   | "context";
 
 interface RenderProps {
@@ -63,6 +67,12 @@ class Model extends EventTarget {
       i18n: ["i18next", "formatjs"],
       search: ["fuse", "match-sorter"],
       storage: ["local-storage", "localforage", "idb"],
+      "web-api": [
+        "intersection-observer",
+        "resize-observer",
+        "web-animations",
+        "drag-drop",
+      ],
       other: ["context"],
     } as const;
   }
