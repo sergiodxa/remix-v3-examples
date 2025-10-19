@@ -60,10 +60,7 @@ export function I18NextExample(this: Remix.Handle) {
         on={[
           submit((formData) => {
             const language = formData.get("language");
-            if (typeof language === "string") {
-              console.log(`Changing language to ${language}`);
-              i18next.changeLanguage(language);
-            }
+            if (typeof language === "string") i18next.changeLanguage(language);
           }),
         ]}
       >
