@@ -3,6 +3,7 @@ import { createEventType, dom, events } from "@remix-run/events";
 
 type Example =
   | "motion"
+  | "vanilla"
   | "event-target"
   | "redux"
   | "zustand"
@@ -33,6 +34,7 @@ class Model extends EventTarget {
   get options() {
     return {
       state: [
+        "vanilla",
         "event-target",
         "redux",
         "zustand",
