@@ -14,8 +14,10 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.7.4",
     "@formatjs/intl": "^3.1.8",
     "@legendapp/state": "^2.1.15",
+    "@popperjs/core": "^2.11.8",
     "@preact/signals-core": "^1.12.1",
     "@reduxjs/toolkit": "^2.9.0",
     "@remix-run/dom": "^0.0.0-experimental-remix-jam.6",
