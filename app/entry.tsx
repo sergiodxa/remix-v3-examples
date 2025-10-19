@@ -41,6 +41,8 @@ import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
 import { XStateStoreExample } from "./state-libs/xstate-store";
 import { VanillaExample } from "./state-libs/vanilla";
+import { PopperExample } from "./ui-libs/popper";
+import { FloatingUIExample } from "./ui-libs/floating-ui";
 import { ExampleSelector } from "./components/example-selector";
 
 createRoot(document.getElementById("root")!).render(
@@ -89,6 +91,8 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "marked") return <MarkedExample />;
           if (selected === "highlight-js") return <HighlightJsExample />;
           if (selected === "tiptap") return <TipTapExample />;
+          if (selected === "popper") return <PopperExample />;
+          if (selected === "floating-ui") return <FloatingUIExample />;
           if (selected === "resize-observer") return <ResizeObserverExample />;
           if (selected === "web-animations") return <WebAnimationsExample />;
           if (selected === "drag-drop") return <DragDropExample />;

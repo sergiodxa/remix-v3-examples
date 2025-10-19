@@ -42,7 +42,9 @@ type Example =
   | "screen-orientation"
   | "fullscreen"
   | "tiptap"
-  | "context";
+  | "context"
+  | "popper"
+  | "floating-ui";
 
 interface RenderProps {
   render(example: Example): Remix.RemixNode;
@@ -80,6 +82,7 @@ class Model extends EventTarget {
       storage: ["local-storage", "localforage", "idb"],
       parsing: ["marked", "highlight-js"],
       "rich-text": ["tiptap"],
+      "ui-libs": ["popper", "floating-ui"],
       "web-api": [
         "intersection-observer",
         "resize-observer",
