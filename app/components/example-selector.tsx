@@ -42,6 +42,7 @@ type Example =
   | "screen-orientation"
   | "fullscreen"
   | "tiptap"
+  | "tailwind"
   | "context";
 
 interface RenderProps {
@@ -80,6 +81,7 @@ class Model extends EventTarget {
       storage: ["local-storage", "localforage", "idb"],
       parsing: ["marked", "highlight-js"],
       "rich-text": ["tiptap"],
+      styling: ["tailwind"],
       "web-api": [
         "intersection-observer",
         "resize-observer",

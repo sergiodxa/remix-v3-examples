@@ -24,6 +24,7 @@ import { IDBExample } from "./storage/idb";
 import { MarkedExample } from "./parsing/marked";
 import { HighlightJsExample } from "./parsing/highlight-js";
 import { TipTapExample } from "./rich-text/tiptap";
+import { TailwindExample } from "./styling/tailwind";
 import { IntersectionObserverExample } from "./web-api/intersection-observer";
 import { ResizeObserverExample } from "./web-api/resize-observer";
 import { WebAnimationsExample } from "./web-api/web-animations";
@@ -89,6 +90,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "marked") return <MarkedExample />;
           if (selected === "highlight-js") return <HighlightJsExample />;
           if (selected === "tiptap") return <TipTapExample />;
+          if (selected === "tailwind") return <TailwindExample />;
           if (selected === "resize-observer") return <ResizeObserverExample />;
           if (selected === "web-animations") return <WebAnimationsExample />;
           if (selected === "drag-drop") return <DragDropExample />;
