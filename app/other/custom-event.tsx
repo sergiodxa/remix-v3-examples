@@ -8,46 +8,39 @@ export function CustomEventExample() {
 
 function Parent(this: Remix.Handle) {
   let count = 0;
-  return () => {
-    return (
-      <>
-        <Child
-          on={Child.change((event) => {
-            count = event.detail;
-            this.update();
-          })}
-        />
-        <span>Clicked {count} times</span>
-      </>
-    );
-  };
+
+  return () => (
+    <>
+      <Child
+        on={Child.click(() => {
+          count++;
+          this.update();
+        })}
+      />
+      <span>Clicked {count} times</span>
+    </>
+  );
 }
 
-const [change, createChange] = createEventType<number>("change");
+const [click, createClick] = createEventType("click");
 
 interface ChildProps extends Pick<Remix.Props<"button">, "on"> {}
 
 function Child() {
   let button: HTMLButtonElement;
-  let pressCount = 0;
 
-  return ({ on = [] }: ChildProps) => {
-    return (
-      <button
-        type="button"
-        on={[
-          ...on,
-          connect((event) => (button = event.currentTarget)),
-          press(() => {
-            pressCount++;
-            button.dispatchEvent(createChange({ detail: pressCount }));
-          }),
-        ]}
-      >
-        Click me
-      </button>
-    );
-  };
+  return ({ on = [] }: ChildProps) => (
+    <button
+      type="button"
+      on={[
+        ...on,
+        connect((event) => (button = event.currentTarget)),
+        press(() => button.dispatchEvent(createClick())),
+      ]}
+    >
+      Click me
+    </button>
+  );
 }
 
-Child.change = change;
+Child.click = click;
