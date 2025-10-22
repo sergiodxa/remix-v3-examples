@@ -37,12 +37,13 @@ import { BroadcastChannelExample } from "./web-api/broadcast-channel";
 import { PageVisibilityExample } from "./web-api/page-visibility";
 import { ScreenOrientationExample } from "./web-api/screen-orientation";
 import { FullscreenExample } from "./web-api/fullscreen";
-import { ContextExample } from "./context";
+import { ContextExample } from "./other/context";
 import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
 import { XStateStoreExample } from "./state-libs/xstate-store";
 import { VanillaExample } from "./state-libs/vanilla";
 import { ExampleSelector } from "./components/example-selector";
+import { CustomEventExample } from "./other/custom-event";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -101,6 +102,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "page-visibility") return <PageVisibilityExample />;
           if (selected === "fullscreen") return <FullscreenExample />;
           if (selected === "context") return <ContextExample />;
+          if (selected === "custom-event") return <CustomEventExample />;
           if (selected === "intersection-observer") {
             return <IntersectionObserverExample />;
           }

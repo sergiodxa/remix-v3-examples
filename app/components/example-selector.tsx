@@ -43,7 +43,8 @@ type Example =
   | "fullscreen"
   | "tiptap"
   | "tailwind"
-  | "context";
+  | "context"
+  | "custom-event";
 
 interface RenderProps {
   render(example: Example): Remix.RemixNode;
@@ -96,7 +97,7 @@ class Model extends EventTarget {
         "screen-orientation",
         "fullscreen",
       ],
-      other: ["context"],
+      other: ["context", "custom-event"],
     } as const;
   }
 
