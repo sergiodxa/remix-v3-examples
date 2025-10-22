@@ -2,31 +2,11 @@ import { connect, type Remix } from "@remix-run/dom";
 import { createEventType } from "@remix-run/events";
 import { press } from "@remix-run/events/press";
 
-export function CustomEventExample() {
-  return <Parent />;
-}
-
-function Parent(this: Remix.Handle) {
-  let count = 0;
-
-  return () => (
-    <>
-      <Child
-        on={Child.click(() => {
-          count++;
-          this.update();
-        })}
-      />
-      <span>Clicked {count} times</span>
-    </>
-  );
-}
-
 const [click, createClick] = createEventType("click");
 
 interface ChildProps extends Pick<Remix.Props<"button">, "on"> {}
 
-function Child() {
+export function Child() {
   let button: HTMLButtonElement;
 
   return ({ on = [] }: ChildProps) => (
