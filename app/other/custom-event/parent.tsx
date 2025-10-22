@@ -1,4 +1,4 @@
-import { type Remix } from "@remix-run/dom";
+import type { Remix } from "@remix-run/dom";
 import { Child } from "./child";
 
 export function Parent(this: Remix.Handle) {
