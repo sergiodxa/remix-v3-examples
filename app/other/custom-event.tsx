@@ -2,6 +2,10 @@ import { connect, type Remix } from "@remix-run/dom";
 import { createEventType } from "@remix-run/events";
 import { press } from "@remix-run/events/press";
 
+export function CustomEventExample() {
+  return <Parent />;
+}
+
 function Parent(this: Remix.Handle) {
   let count = 0;
   return () => {
@@ -47,7 +51,3 @@ function Child() {
 }
 
 Child.change = change;
-
-export function CustomEventExample() {
-  return <Parent />;
-}
