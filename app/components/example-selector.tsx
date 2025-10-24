@@ -44,7 +44,8 @@ type Example =
   | "tiptap"
   | "tailwind"
   | "context"
-  | "custom-event";
+  | "custom-event"
+  | "custom-event-exposing";
 
 interface RenderProps {
   render(example: Example): Remix.RemixNode;
@@ -58,7 +59,7 @@ class Model extends EventTarget {
     return (searchParams.get("example") ?? "context") as Example;
   }
 
-  get options() {
+  get options(): Record<string, Example[]> {
     return {
       state: [
         "vanilla",
@@ -97,7 +98,7 @@ class Model extends EventTarget {
         "screen-orientation",
         "fullscreen",
       ],
-      other: ["context", "custom-event"],
+      other: ["context", "custom-event", "custom-event-exposing"],
     } as const;
   }
 

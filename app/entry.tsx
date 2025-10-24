@@ -44,6 +44,7 @@ import { XStateStoreExample } from "./state-libs/xstate-store";
 import { VanillaExample } from "./state-libs/vanilla";
 import { ExampleSelector } from "./components/example-selector";
 import { CustomEventExample } from "./other/custom-event";
+import { CustomEventExposingExample } from "./other/custom-event-exposing";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -111,6 +112,9 @@ createRoot(document.getElementById("root")!).render(
           }
           if (selected === "screen-orientation") {
             return <ScreenOrientationExample />;
+          }
+          if (selected === "custom-event-exposing") {
+            return <CustomEventExposingExample />;
           }
           return null;
         }}
