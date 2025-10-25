@@ -15,6 +15,7 @@ export function lazy<
       this.queueTask(() => {
         promise.then((mod) => {
           Component = mod;
+          if (this.signal.aborted) return;
           this.update();
         });
       });
