@@ -45,7 +45,8 @@ type Example =
   | "tailwind"
   | "context"
   | "custom-event"
-  | "custom-event-exposing";
+  | "custom-event-exposing"
+  | "lazy-load";
 
 interface RenderProps {
   render(example: Example): Remix.RemixNode;
@@ -98,7 +99,7 @@ class Model extends EventTarget {
         "screen-orientation",
         "fullscreen",
       ],
-      other: ["context", "custom-event", "custom-event-exposing"],
+      other: ["context", "custom-event", "custom-event-exposing", "lazy-load"],
     } as const;
   }
 

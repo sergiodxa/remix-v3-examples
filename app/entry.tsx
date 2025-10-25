@@ -45,6 +45,7 @@ import { VanillaExample } from "./state-libs/vanilla";
 import { ExampleSelector } from "./components/example-selector";
 import { CustomEventExample } from "./other/custom-event";
 import { CustomEventExposingExample } from "./other/custom-event-exposing";
+import { LazyLoadExample } from "./other/lazy-load";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -115,6 +116,9 @@ createRoot(document.getElementById("root")!).render(
           }
           if (selected === "custom-event-exposing") {
             return <CustomEventExposingExample />;
+          }
+          if (selected === "lazy-load") {
+            return <LazyLoadExample />;
           }
           return null;
         }}
