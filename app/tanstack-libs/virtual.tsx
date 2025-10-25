@@ -37,7 +37,7 @@ export function VirtualExample(this: Remix.Handle) {
             virtualizer._willUpdate();
           }),
         ]}
-        style={{
+        css={{
           width: "100%",
           height: "400px",
           overflow: "auto",
@@ -45,7 +45,7 @@ export function VirtualExample(this: Remix.Handle) {
         }}
       >
         <div
-          style={{
+          css={{
             height: `${virtualizer.getTotalSize()}px`,
             position: "relative",
           }}
@@ -54,10 +54,14 @@ export function VirtualExample(this: Remix.Handle) {
             <div
               key={item.key}
               style={{
+                "--start": `${item.start}px`,
+                "--size": `${item.size}px`,
+              }}
+              css={{
                 position: "absolute",
                 width: "100%",
-                height: `${item.size}px`,
-                transform: `translateY(${item.start}px)`,
+                height: "var(--size)",
+                transform: `translateY(var(--start))`,
               }}
             >
               {items[item.index]}
