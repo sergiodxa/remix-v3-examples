@@ -42,7 +42,12 @@ type Example =
   | "screen-orientation"
   | "fullscreen"
   | "tiptap"
+  | "tailwind"
   | "context"
+  | "custom-event"
+  | "custom-event-exposing"
+  | "lazy-load"
+  | "vanillajs"
   | "popper"
   | "floating-ui";
 
@@ -58,7 +63,7 @@ class Model extends EventTarget {
     return (searchParams.get("example") ?? "context") as Example;
   }
 
-  get options() {
+  get options(): Record<string, Example[]> {
     return {
       state: [
         "vanilla",
@@ -82,6 +87,7 @@ class Model extends EventTarget {
       storage: ["local-storage", "localforage", "idb"],
       parsing: ["marked", "highlight-js"],
       "rich-text": ["tiptap"],
+      styling: ["tailwind"],
       "ui-libs": ["popper", "floating-ui"],
       "web-api": [
         "intersection-observer",
@@ -97,7 +103,13 @@ class Model extends EventTarget {
         "screen-orientation",
         "fullscreen",
       ],
-      other: ["context"],
+      other: [
+        "context",
+        "custom-event",
+        "custom-event-exposing",
+        "lazy-load",
+        "vanillajs",
+      ],
     } as const;
   }
 

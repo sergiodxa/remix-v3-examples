@@ -24,6 +24,7 @@ import { IDBExample } from "./storage/idb";
 import { MarkedExample } from "./parsing/marked";
 import { HighlightJsExample } from "./parsing/highlight-js";
 import { TipTapExample } from "./rich-text/tiptap";
+import { TailwindExample } from "./styling/tailwind";
 import { IntersectionObserverExample } from "./web-api/intersection-observer";
 import { ResizeObserverExample } from "./web-api/resize-observer";
 import { WebAnimationsExample } from "./web-api/web-animations";
@@ -36,7 +37,7 @@ import { BroadcastChannelExample } from "./web-api/broadcast-channel";
 import { PageVisibilityExample } from "./web-api/page-visibility";
 import { ScreenOrientationExample } from "./web-api/screen-orientation";
 import { FullscreenExample } from "./web-api/fullscreen";
-import { ContextExample } from "./context";
+import { ContextExample } from "./other/context";
 import { EventTargetExample } from "./state-libs/event-target";
 import { LegendStateExample } from "./state-libs/legend-state";
 import { XStateStoreExample } from "./state-libs/xstate-store";
@@ -44,6 +45,10 @@ import { VanillaExample } from "./state-libs/vanilla";
 import { PopperExample } from "./ui-libs/popper";
 import { FloatingUIExample } from "./ui-libs/floating-ui";
 import { ExampleSelector } from "./components/example-selector";
+import { CustomEventExample } from "./other/custom-event";
+import { CustomEventExposingExample } from "./other/custom-event-exposing";
+import { LazyLoadExample } from "./other/lazy-load";
+import { VanillaJSExample } from "./other/vanillajs";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -91,6 +96,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "marked") return <MarkedExample />;
           if (selected === "highlight-js") return <HighlightJsExample />;
           if (selected === "tiptap") return <TipTapExample />;
+          if (selected === "tailwind") return <TailwindExample />;
           if (selected === "popper") return <PopperExample />;
           if (selected === "floating-ui") return <FloatingUIExample />;
           if (selected === "resize-observer") return <ResizeObserverExample />;
@@ -103,6 +109,7 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "page-visibility") return <PageVisibilityExample />;
           if (selected === "fullscreen") return <FullscreenExample />;
           if (selected === "context") return <ContextExample />;
+          if (selected === "custom-event") return <CustomEventExample />;
           if (selected === "intersection-observer") {
             return <IntersectionObserverExample />;
           }
@@ -111,6 +118,15 @@ createRoot(document.getElementById("root")!).render(
           }
           if (selected === "screen-orientation") {
             return <ScreenOrientationExample />;
+          }
+          if (selected === "custom-event-exposing") {
+            return <CustomEventExposingExample />;
+          }
+          if (selected === "lazy-load") {
+            return <LazyLoadExample />;
+          }
+          if (selected === "vanillajs") {
+            return <VanillaJSExample defaultCount={10} message="Count" />;
           }
           return null;
         }}
