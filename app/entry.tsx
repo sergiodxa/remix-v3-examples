@@ -46,7 +46,7 @@ import { ExampleSelector } from "./components/example-selector";
 import { CustomEventExample } from "./other/custom-event";
 import { CustomEventExposingExample } from "./other/custom-event-exposing";
 import { LazyLoadExample } from "./other/lazy-load";
-import { JSDocExample } from "./other/jsdoc";
+import { VanillaJSExample } from "./other/vanillajs";
 
 createRoot(document.getElementById("root")!).render(
   <div css={{ margin: "2rem" }}>
@@ -121,8 +121,8 @@ createRoot(document.getElementById("root")!).render(
           if (selected === "lazy-load") {
             return <LazyLoadExample />;
           }
-          if (selected === "jsdoc") {
-            return <JSDocExample defaultCount={10} message="Count" />;
+          if (selected === "vanillajs") {
+            return <VanillaJSExample defaultCount={10} message="Count" />;
           }
           return null;
         }}

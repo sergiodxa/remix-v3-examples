@@ -1,4 +1,5 @@
 import { press } from "@remix-run/events/press";
+import html from "./html";
 
 /**
  * @typedef {Object} SetupProps
@@ -14,20 +15,19 @@ import { press } from "@remix-run/events/press";
  * @this {import("@remix-run/dom").Remix.Handle}
  * @param {SetupProps} setupProps
  */
-export function JSDocExample(setupProps) {
+export function VanillaJSExample(setupProps) {
   let count = setupProps.defaultCount || 0;
 
   /** @param {RenderProps} renderProps */
-  return (renderProps) => (
+  return (renderProps) => html`
     <button
-      on={[
+      on=${[
         press(() => {
           count++;
           this.update();
         }),
       ]}
-    >
-      {renderProps.message}: <span>{count}</span>
-    </button>
-  );
+      children="${renderProps.message}: ${count}"
+    />
+  `;
 }

@@ -47,7 +47,7 @@ type Example =
   | "custom-event"
   | "custom-event-exposing"
   | "lazy-load"
-  | "jsdoc";
+  | "vanillajs";
 
 interface RenderProps {
   render(example: Example): Remix.RemixNode;
@@ -105,7 +105,7 @@ class Model extends EventTarget {
         "custom-event",
         "custom-event-exposing",
         "lazy-load",
-        "jsdoc",
+        "vanillajs",
       ],
     } as const;
   }
